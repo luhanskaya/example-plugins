@@ -1,0 +1,25 @@
+.bg-grayscale {
+  filter: grayscale(100%);
+}
+
+@mixin line-separator ($left: -1%, $right: -1%) {
+  position: relative;
+  display: flex;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    bottom: 0;
+    height: 2px;
+    left: $left;
+    right: $right;
+    background-image: $navbar-nav-link-bg-gradient;
+    background-size: 50% 2px, 52% 2px;
+    background-position: 0 100%, 100% 100%;
+  }
+}
+
+.line-separator {
+  @include line-separator;
+}

@@ -1,0 +1,10 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-wrapper">
+      <p>Copyright {{ "now"|date('Y') }}</p>
+      <nav id="nav-main" class="nav-main" role="navigation">
+        {% include "parts/components/header-menu.twig" with {'items': menu.get_items} %}
+      </nav>
+    </div>
+  </div>
+</footer>

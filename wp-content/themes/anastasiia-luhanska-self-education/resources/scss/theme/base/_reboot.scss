@@ -1,0 +1,29 @@
+:root {
+  --wp--style--global--content-size: 1164px;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior: none;
+  text-underline-position: under;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  transition: $transition-base;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}

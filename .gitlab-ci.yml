@@ -1,0 +1,27 @@
+variables:
+  DB_NAME: "noclient_anastasiialuhanskaselfeducation"
+  CLIENT_NAME: "no-client"
+  PROJECT_NAME: "anastasiia-luhanska-self-education"
+  GIT_STRATEGY: none
+  PHP_VER: "8.1"
+  DEPLOY_MODE: "wp"
+stages:
+- deploy
+
+deploy_develop:
+  stage: deploy
+  script:
+  - sudo -u www-data reporobot --repository-url=$CI_REPOSITORY_URL --branch=develop --client=$CLIENT_NAME --project=$PROJECT_NAME --database=$DB_NAME --deploy-mode=$DEPLOY_MODE --php-version=$PHP_VER --import-database --backup-database --keep-uploads --install-composer --npm-run="development"
+  only:
+  - develop
+  tags:
+  - develop
+
+deploy_master:
+  stage: deploy
+  script:
+  - sudo -u www-data reporobot --repository-url=$CI_REPOSITORY_URL --branch=master --client=$CLIENT_NAME --project=$PROJECT_NAME --database=$DB_NAME --deploy-mode=$DEPLOY_MODE --php-version=$PHP_VER --import-database --backup-database --keep-uploads --install-composer --npm-run="development"
+  only:
+  - master
+  tags:
+  - master

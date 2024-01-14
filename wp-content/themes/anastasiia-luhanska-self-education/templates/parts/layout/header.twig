@@ -1,0 +1,14 @@
+<header class="header">
+  <div class="container">
+    <div class="header-wrapper">
+      <a href="{{ site.url }}" rel="home" class="header-logo">
+        <svg>
+          <use href="#icon-logo"></use>
+        </svg>
+      </a>
+      <nav id="nav-main" class="nav-main" role="navigation">
+        {% include "parts/components/header-menu.twig" with {'items': menu.get_items} %}
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+<section class="{{ class }} {{ classes }} {{ block_classes }}" id="{{ block.id }}">
+  <div class="sk-container sk-container--fl">
+
+    <div class="{{ class }}-content sk-container">
+      {% if not (fields.title is empty) %}
+        <h1 class="{{ class }}-title">{{ fields.title }}</h1>
+      {% endif %}
+
+      {% if not (fields.text is empty) %}
+        <p class="{{ class }}-text">{{ fields.text }}</p>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

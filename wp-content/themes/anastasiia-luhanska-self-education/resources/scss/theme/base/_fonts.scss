@@ -1,0 +1,5 @@
+@include font-face($palatino, "palatino/palatino-roman", 400);
+@include font-face($palatino, "palatino/palatino-bold", 700);
+@include font-face($palatino, "palatino/palatino-bolditalic", 700, italic);
+@include font-face($palatino-linotype, "palatino-linotype/palatino-linotype-roman", 400);
+@include font-face($palatino-linotype, "palatino-linotype/palatino-linotype-italic", 400, italic);

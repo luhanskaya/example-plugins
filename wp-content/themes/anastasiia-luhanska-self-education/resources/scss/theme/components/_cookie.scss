@@ -1,0 +1,56 @@
+$notice-button-width: 150px;
+
+#cookie-notice {
+  .cookie-notice-container {
+    @extend .container-fluid;
+
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+
+    @include media-breakpoint-down(xxl) {
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      text-align: left;
+    }
+  }
+
+  #cn-accept-cookie {
+    @extend .btn, .btn-success;
+  }
+}
+
+#cn-notice-text {
+  font-size: $font-size-base;
+  line-height: $line-height-lg;
+  margin: 0;
+  vertical-align: middle;
+
+  @include media-breakpoint-up(lg) {
+    width: calc(100% - $notice-button-width);
+  }
+}
+
+#cn-notice-buttons {
+  @include media-breakpoint-down(lg) {
+    margin-top: 30px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    text-align: right;
+    vertical-align: middle;
+    width: $notice-button-width;
+  }
+}
+
+#cn-close-notice {
+  top: 0;
+  margin-top: 1.2rem;
+
+  &::before,
+  &::after {
+    background-color: $white;
+  }
+}

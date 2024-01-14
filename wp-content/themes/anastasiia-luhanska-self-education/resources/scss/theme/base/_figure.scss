@@ -1,0 +1,28 @@
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bg-cover {
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.object-fit {
+  height: 100%;
+  width: 100%;
+
+  @include object-fit(cover);
+}
+
+.object-fit-contain {
+  height: 100%;
+  width: auto;
+
+  @include object-fit(contain);
+}

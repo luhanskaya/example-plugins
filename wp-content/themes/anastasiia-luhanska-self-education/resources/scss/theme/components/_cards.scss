@@ -1,0 +1,44 @@
+.card-full-fill {
+  &:hover {
+    .card-img-overlay {
+      transition: $transition-base;
+      background-color: rgba($dark, 0.82);
+    }
+
+    .card-heading {
+      transform: translateY(0);
+      top: $card-img-overlay-padding-y;
+    }
+
+    .text {
+      opacity: 1;
+      position: relative;
+    }
+  }
+
+  .card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    transition: $transition-base;
+    z-index: 20;
+  }
+
+  .card-heading {
+    transition: $transition-base;
+    position: absolute;
+    top: 100%;
+    transform: translateY(calc(-100% - $card-img-overlay-padding-y));
+    left: $card-img-overlay-padding-x;
+    right: $card-img-overlay-padding-x;
+
+    .title {
+      margin-bottom: 0;
+    }
+  }
+
+  .text {
+    opacity: 0;
+    transition: $transition-opacity;
+    flex: 1 1 auto;
+  }
+}

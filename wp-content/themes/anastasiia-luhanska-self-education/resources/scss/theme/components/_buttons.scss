@@ -1,0 +1,32 @@
+.btn-white {
+  @include button-variant(
+    $white,
+    $white,
+    $color: $primary,
+    $hover-color: $secondary,
+    $active-color: $secondary,
+    $disabled-background: rgba($white, 0.95),
+    $disabled-border: rgba($white, 0.5),
+    $disabled-color: rgba($primary, 0.8));
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-icon-md {
+  $size: 2rem;
+
+  width: $size;
+  height: $size;
+}
+
+.btn-icon-lg {
+  $size: 2.25rem;
+
+  width: $size;
+  height: $size;
+}

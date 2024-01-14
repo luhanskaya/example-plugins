@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-4">
+                    <article id="post-{{ post.id }}" class="{{ post.class }} card mb-3">
+                        {% if post.thumbnail is not empty %}
+                            <div class="card-img">
+                                {% include 'parts/components/image.twig'
+                                with {
+                                    'id': post.thumbnail,
+                                    'classes': 'img-fluid',
+                                    'sizes': '(max-width: 2000px) 800px, 800px',
+                                    'width': 200,
+                                } %}
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <div class="title">
+                                <h2 class="h3">
+                                    <a href="{{ post.link }}">
+                                        {{ post.post_title }}
+                                    </a>
+                                </h2>
+                            </div>
+                            {{ post.content }}
+                            <div class="meta small">
+                                <span class="occupation d-block">
+                                    {{ occupation_meta }}
+                                </span>
+                                <span class="company d-block">
+                                    <a href="{{ esc_attr }}">
+                                        {{ company_meta }}
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

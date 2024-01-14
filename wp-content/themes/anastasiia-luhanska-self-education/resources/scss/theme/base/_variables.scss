@@ -1,0 +1,227 @@
+$path-fonts:      '../fonts/';
+$path-img:        '../../img/';
+
+// Color system
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #94a0aa;
+$gray-600: #5a5a64;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$purple-100:            #efeff9;
+
+$blue-500:              #375564;
+$blue-600:              #2761a5;
+$blue-700:              #1c3d73;
+$blue-800:              #03002e;
+$blue-900:              #02002d;
+
+$green-600:             #06a759;
+$green-900:             #10aa60;
+
+$primary:               $blue-700;
+$secondary:             $gray-500;
+$dark:                  $blue-900;
+$light:                 $purple-100;
+$success:               $green-600;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary":          $primary,
+    "secondary":        $secondary,
+    "dark":             $dark,
+    "light":            $light,
+    "success":          $success,
+    "white":            $white,
+  ),
+  $theme-colors
+);
+
+$cards-bg-color: $blue-700, $blue-500, $gray-500;
+
+$container-max-widths: (
+  xl: 1164px
+);
+
+$grid-gutter-width:     3rem;
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+// scss-docs-end grid-breakpoints
+
+$spacer: 1rem;
+$spacers: ();
+$spacers: (
+  0:  0,
+  1:  $spacer * 0.25,
+  2:  $spacer * 0.5,
+  3:  $spacer,
+  4:  $spacer * 1.5,
+  5:  $spacer * 2,
+  6:  $spacer * 2.5,
+  7:  $spacer * 3,
+  8:  $spacer * 3.5,
+  9:  $spacer * 4,
+  10: $spacer * 4.5,
+  11: $spacer * 5,
+  12: $spacer * 5.5,
+  13: $spacer * 6,
+  14: $spacer * 6.5,
+  15: $spacer * 7,
+  16: $spacer * 7.5,
+  17: $spacer * 8,
+  18: $spacer * 8.5,
+  19: $spacer * 9,
+  20: $spacer * 9.5,
+  21: $spacer * 10,
+  22: $spacer * 10.5,
+  23: $spacer * 11,
+  24: $spacer * 11.5,
+  25: $spacer * 12,
+  26: $spacer * 12.5,
+  27: $spacer * 13,
+  28: $spacer * 13.5,
+  29: $spacer * 14,
+  30: $spacer * 14.5,
+  31: $spacer * 15,
+  32: $spacer * 15.5,
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    21: 21%,
+    25: 25%,
+    35: 35%,
+    50: 50%,
+    75: 75%,
+    88: 88%,
+    100: 100%,
+  ),
+  $sizes
+);
+
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+  auto: auto,
+);
+
+// Body
+$body-color:                    $black;
+
+// Links
+$link-decoration:               none;
+$link-hover-color:              $secondary;
+
+// Paragraphs
+$paragraph-margin-bottom:       1.55rem;
+
+// Lead
+$lead-font-size:                1.5rem;
+
+// Transition
+$transition-base:               all 0.3s ease-in-out;
+$transition-opacity:            opacity 0.5s ease-in-out;
+
+// Typography
+$open-sans:                     "Open Sans";
+$font-family-base:              $open-sans, sans-serif;
+
+$palatino:                      'Palatino';
+$font-family-secondary:         $palatino, sans-serif;
+
+$palatino-linotype:             'Palatino Linotype';  // check if it is in design
+$font-family-tertiary:          $palatino-linotype, sans-serif; // check if it is in design
+
+$text-muted:                    $gray-600;
+
+$font-size-base:                1.125rem;
+$font-size-xs:                  0.875rem;
+$font-size-sm:                  1rem;
+$font-size-lg:                  1.25rem;
+
+$line-height-base:              1.44;
+$line-height-lg:                1.5;
+$line-height-sm:                1.25;
+
+$h1-font-size:                  3.75rem;
+$h2-font-size:                  2.8125rem;
+$h3-font-size:                  2.375rem;
+$h4-font-size:                  2rem;
+$h5-font-size:                  1.5rem;
+$h6-font-size:                  1.375rem;
+
+// Headings
+$headings-font-family:          $font-family-secondary;
+$headings-margin-bottom:        0.6rem;
+$headings-font-weight:          400;
+$headings-color:                $primary;
+
+//Buttons
+$btn-font-weight:               600;
+$btn-line-height:               1.36;
+$btn-font-family:               $font-family-base;
+
+$btn-transition:                color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+$btn-padding-y-sm:              0.16rem;
+$btn-padding-x-sm:              0.6rem;
+$btn-font-size-sm:              0.875rem;
+
+$btn-border-radius:             0;
+$btn-border-radius-sm:          0;
+
+// Nav
+$nav-link-font-size:            1.125rem;
+$nav-link-font-weight:          400;
+
+// Navbar
+$navbar-padding-y:              0.9rem;
+
+$navbar-nav-link-padding-x:     0;
+
+$navbar-nav-link-bg-gradient:             linear-gradient(90deg, transparent 0%, #06a759 80%), linear-gradient(270deg, transparent 0%, #06a759 80%);
+$navbar-nav-link-bg-gradient-vertical:    linear-gradient(to bottom, transparent 0%, $green-900 60%, $green-600 100%), linear-gradient(to bottom, $green-600 0%, $green-900 60%, transparent 100%);
+
+$navbar-dark-color:             $white;
+$navbar-dark-hover-color:       $white;
+
+$navbar-submenu-color:          $blue-500;
+$navbar-submenu-active-color:   $blue-600;
+
+$navbar-toggler-padding-y:      0;
+$navbar-toggler-padding-x:      0;
+$navbar-toggler-focus-width:    0;
+
+// Cards
+$card-border-width:             0;
+$card-border-radius:            0;
+$card-spacer-y:                 1.7rem;
+$card-img-overlay-padding-y:    2.1rem;
+$card-img-overlay-padding-x:    1.9rem;
+$card-img-overlay-padding:      $card-img-overlay-padding-y $card-img-overlay-padding-x;
+$card-box-shadow:               none;
+$card-cap-color:                inherit;
+$card-height:                   none;
+$card-color:                    inherit;
+
+// Options
+$enable-negative-margins:       true;

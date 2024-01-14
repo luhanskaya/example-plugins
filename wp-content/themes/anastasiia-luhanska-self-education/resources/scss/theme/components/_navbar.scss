@@ -1,0 +1,228 @@
+%link-underline {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+    background-repeat: no-repeat;
+    background-image: $navbar-nav-link-bg-gradient;
+    background-size: 50% 2px, 52% 2px;
+    background-position: 0 100%, 100% 100%;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.navbar-brand {
+  max-width: 145px;
+  height: auto;
+  z-index: 20;
+
+  @include media-breakpoint-up(md) {
+    max-width: 262px;
+  }
+
+  svg,
+  img {
+    @extend .img-fluid;
+  }
+}
+
+.navbar {
+  z-index: 10;
+
+  &::before {
+    content: "";
+    width: 100%;
+    background-color: $dark;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    @include media-breakpoint-up(xl) {
+      content: none;
+    }
+  }
+}
+
+.navbar-nav {
+  $offset-x: 1.3rem;
+
+  align-items: center;
+  text-align: center;
+  z-index: 20;
+
+  @include media-breakpoint-up(xl) {
+    margin-left: -$offset-x;
+    margin-right: -$offset-x;
+  }
+
+  & > .nav-item {
+    margin-left: $offset-x;
+    margin-right: $offset-x;
+    padding: 13px 0;
+
+    &::marker {
+      content: none;
+    }
+  }
+
+  & > .nav-item:not(.btn-custom) {
+    & > .nav-link {
+      @extend %link-underline;
+
+      font-size: 1.4375rem;
+      width: max-content;
+    }
+
+    &.current-menu-item,
+    &.current-menu-parent {
+      & > .nav-link {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .sub-menu {
+    @extend .list-unstyled;
+
+    transition: $transition-base;
+    opacity: 0;
+    visibility: hidden;
+    max-width: 250px;
+
+    @include media-breakpoint-down(xl) {
+      height: 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      transform: translate(-50%, 20px);
+      min-width: 215px;
+      left: 50%;
+      top: 100%;
+      padding: 10px 20px;
+      background-color: $white;
+      line-height: 1.35;
+
+      .nav-link {
+        color: $navbar-submenu-color;
+        padding: 4px 0;
+
+        &:hover {
+          color: $navbar-submenu-active-color;
+        }
+      }
+    }
+  }
+
+  .menu-item-has-children {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      & > .sub-menu {
+        @include media-breakpoint-up(xl) {
+          transform: translateX(-50%) scaleY(1);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    &.active {
+      .sub-menu {
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .arrow-down {
+        &::before {
+          transform: translateY(-50%) rotate(225deg);
+          margin-top: auto;
+          margin-bottom: -2px;
+        }
+      }
+    }
+  }
+
+  .btn-custom {
+    .nav-link {
+      .navbar-expand-xl & {
+        @extend .btn, .btn-sm, .btn-outline-white;
+      }
+    }
+  }
+
+  .arrow-down {
+    padding: 0 5px;
+    z-index: 20;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) rotate(45deg);
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      padding: 4px;
+      margin-right: -22px;
+      margin-top: -2px;
+    }
+  }
+}
+
+.navbar-collapse {
+  @include media-breakpoint-down(xl) {
+    background-color: $dark;
+    color: $white;
+    padding: 142px 0 120px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+
+    /* IE and Edge */
+    scrollbar-width: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transform: translateY(-100%);
+    will-change: transform;
+    transition: $transition-base;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 100px 0 80px;
+  }
+
+  &.show {
+    transform: translateY(0);
+  }
+}

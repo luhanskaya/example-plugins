@@ -1,0 +1,38 @@
+%equal {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      @each $size, $length in $sizes {
+        &.equal#{$infix}-#{$size} {
+          &::before {
+            padding-top: $length;
+          }
+        }
+      }
+    }
+  }
+}
+
+.equal {
+  @extend %equal;
+}
+
+.vw-50 {
+  width: 50vw !important;
+}
+
+.vh-50 {
+  height: 50vh !important;
+}

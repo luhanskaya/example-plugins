@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-7 mx-auto">
+                <article id="post-{{ post.id }}" class="{{ post.class }} card">
+                    <div class="title">
+                        <h2 class="mb-4">
+                            <a href="{{ post.link }}">
+                                {{ post.post_title }}
+                            </a>
+                        </h2>
+                    </div>
+                    {% if post.thumbnail is not empty %}
+                        <div class="card-img mb-4">
+                            {% include 'parts/components/image.twig'
+                                with {
+                                    'id': post.thumbnail,
+                                    'classes': 'img-fluid w-100',
+                                    'sizes': '(max-width: 2000px) 800px, 800px',
+                                    'width': 200,
+                                } %}
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        {{ post.content }}
+                        <div class="meta small">
+                            <span class="occupation d-block">
+                                {{ occupation_meta }}
+                            </span>
+                            <span class="company d-block">
+                                <a href="{{ esc_attr }}">
+                                    {{ company_meta }}
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="pb-7">
+            <a href="{{ testimonials_archive_link }}" class="d-flex align-items-center">
+                <svg width="20.243" height="13.501" class="icon me-2">
+                    <use href="#arrow-back"></use>
+                </svg>
+                <span>
+                    {{ __('Back', THEME_TD) }}
+                </span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
